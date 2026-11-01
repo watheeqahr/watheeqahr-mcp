@@ -4,7 +4,7 @@
   "title": "WatheeqaHR Attendance Analyzer",
   "description": "Analyze biometric attendance exports (ZKTeco, Hikvision...): lateness, absence, missing punches.",
   "version": "1.0.0",
-  "repository": { "url": "https://github.com/kanaanhussein/watheeqahr-mcp", "source": "github" },
+  "repository": { "url": "https://github.com/watheeqahr/watheeqahr-mcp", "source": "github" },
   "remotes": [
     { "type": "streamable-http", "url": "https://www.watheeqahr.com/api/v1/mcp" }
   ]
