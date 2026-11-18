@@ -1,13 +1,13 @@
 # WatheeqaHR Attendance Analyzer — MCP server
 
-A free, hosted [Model Context Protocol](https://modelcontextprotocol.io) server that lets AI assistants (Claude, ChatGPT, Cursor, VS Code and others) **analyze biometric attendance device exports** directly: ZKTeco / BioTime, Hikvision, Dahua, Anviz, Suprema BioStar, FingerTec, Matrix COSEC, eSSL and similar. It reads CSV, Excel or text files with English or Arabic headers.
+A free, hosted [Model Context Protocol](https://modelcontextprotocol.io) server that lets MCP-compatible AI assistants **analyze biometric attendance device exports** directly: ZKTeco / BioTime, Hikvision, Dahua, Anviz, Suprema BioStar, FingerTec, Matrix COSEC, eSSL and similar. It reads CSV, Excel or text files with English or Arabic headers.
 
 For each employee it returns days present, estimated absent days, late days and missing punches, plus the column mapping it detected. That way you can check a month of attendance before payroll without building spreadsheet formulas.
 
 - **Endpoint:** `https://www.watheeqahr.com/api/v1/mcp` (remote, Streamable HTTP)
 - **Authentication:** none
 - **Cost:** free
-- **Made by:** [WatheeqaHR](https://www.watheeqahr.com), attendance, leave and payroll preparation for companies in the UAE, Saudi Arabia, Kuwait, Qatar, Bahrain and Oman.
+- **Made by:** [WatheeqaHR](https://www.watheeqahr.com), Arabic and English HR, attendance, payroll preparation, projects and company expenses for companies in the UAE, Saudi Arabia, Kuwait, Qatar, Bahrain and Oman.
 
 ## Tools
 
@@ -16,6 +16,8 @@ For each employee it returns days present, estimated absent days, late days and 
 | `analyze_attendance_file` | Analyzes a device export, passed as `csv_text` or as `content_base64` + `filename`. Optional settings: shift start and end, weekend days, holidays, flexible schedule, required hours, Hijri calendar, sheet, country. |
 | `list_supported_attendance_formats` | Lists the export header shapes the analyzer is tested against, so you can check a file before uploading it. |
 | `get_product_facts` | Returns WatheeqaHR's scope, supported countries and pricing, so an assistant does not have to guess. |
+
+Tested with Claude. The configurations below are examples for compatible MCP clients; client support and setup options vary.
 
 ## Connect
 
@@ -65,17 +67,35 @@ More: [Developers & AI assistants guide](https://www.watheeqahr.com/developers) 
 
 **محلل ملفات الحضور من وثيقة — خادم MCP مجاني**
 
-يتيح خادم MCP هذا لمساعدات الذكاء الاصطناعي (Claude وChatGPT وCursor وغيرها) **تحليل ملفات أجهزة البصمة مباشرة**. يدعم ZKTeco وBioTime وHikvision وDahua وAnviz وSuprema وFingerTec وMatrix COSEC وeSSL، بصيغ CSV وExcel والنصوص، وبعناوين أعمدة عربية أو إنجليزية.
+يتيح خادم MCP هذا لمساعدات الذكاء الاصطناعي المتوافقة مع MCP **تحليل ملفات أجهزة البصمة مباشرة**. يدعم ZKTeco وBioTime وHikvision وDahua وAnviz وSuprema وFingerTec وMatrix COSEC وeSSL، بصيغ CSV وExcel والنصوص، وبعناوين أعمدة عربية أو إنجليزية.
 
 لكل موظف يعرض أيام الحضور والغياب المقدّر وأيام التأخير والبصمات الناقصة، وذلك قبل تجهيز الرواتب ودون معادلات Excel.
 
 - **الرابط:** `https://www.watheeqahr.com/api/v1/mcp`، مجاني ولا يحتاج تسجيلًا.
+- **التوافق المختبَر:** Claude. تختلف إمكانات الإعداد بين عملاء MCP.
 - **في Claude:** الإعدادات ← Connectors ← Add custom connector، ثم الصق الرابط.
 - **المحلل على الويب:** [www.watheeqahr.com/ar/tools/attendance-analyzer](https://www.watheeqahr.com/ar/tools/attendance-analyzer)
 - **الحدود والخصوصية:**
   - الحجم: حتى 5 MB للملف.
   - العدد: 3 ملفات مختلفة كل 30 يومًا لكل عنوان شبكة.
   - الاحتفاظ: نحتفظ بنسخة مشفّرة من الملف لمدة أقصاها 90 يومًا لتحسين المحلل، ثم تُحذف تلقائيًا.
+
+## Explore the WatheeqaHR platform
+
+The hosted analyzer is free. The full platform offers a **30-day free trial** for one company and up to 25 employees, with no credit card required. Basic is a fixed **AED 99/month per company** for up to 25 employees; Growth is AED 199/month for up to 100 employees and three companies.
+
+AI assistance is available during the trial and on paid plans: activate Amazon Nova on AWS Bedrock or connect your company’s own Claude or OpenAI API key. Connected-provider usage is billed separately by the provider.
+
+- [Product walkthroughs](https://www.watheeqahr.com/product) · [Pricing](https://www.watheeqahr.com/pricing) · [AI assistant](https://www.watheeqahr.com/ai-hr-assistant)
+- [ZKTeco export guide](https://www.watheeqahr.com/zkteco-attendance-excel-export) · [Hikvision export guide](https://www.watheeqahr.com/hikvision-attendance-excel-export)
+- End-of-service calculators: [UAE](https://www.watheeqahr.com/tools/uae-gratuity-calculator) · [Saudi Arabia](https://www.watheeqahr.com/tools/saudi-gratuity-calculator) · [Kuwait](https://www.watheeqahr.com/tools/kuwait-gratuity-calculator)
+- [UAE WPS SIF Checker](https://www.watheeqahr.com/tools/wps-sif-checker)
+
+### اكتشف منصة وثيقة
+
+إدارة الموظفين والحضور وتجهيز الرواتب والمشاريع والمصروفات بالعربية والإنجليزية للدول الخليجية الست. جرّب المنصة مجانًا لمدة **30 يومًا** لشركة واحدة وحتى 25 موظفًا، دون بطاقة ائتمانية. الباقة الأساسية **99 درهمًا شهريًا للشركة** حتى 25 موظفًا. المساعد الذكي متاح في التجربة والباقات المدفوعة عبر Amazon Nova، أو بربط مفتاح شركتك في Claude أو OpenAI، مع احتساب استخدام المزوّد بشكل منفصل.
+
+[اكتشف المنصة](https://www.watheeqahr.com/ar/product) · [حاسبة السعودية](https://www.watheeqahr.com/ar/tools/saudi-gratuity-calculator) · [حاسبة الكويت](https://www.watheeqahr.com/ar/tools/kuwait-gratuity-calculator)
 
 ## License
 
